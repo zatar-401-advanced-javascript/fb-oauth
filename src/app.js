@@ -14,14 +14,22 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET;
 // Prepare the express app
 const app = express();
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 // App Level MW
 app.use(cors());
 
 // Website Files
 app.use(express.static('./public'));
-// app.get('/',(req,res) =>{
-//   res.send('test');
-// })
+
 
 // Routes
 // app.get('/oauth', oauth, (req, res) => {
@@ -38,12 +46,10 @@ passport.use(new FacebookStrategy({
 
 async function(accessToken, refreshToken, profile, cb) {
   try{
-    console.log(profile)
-    return cb(null,profile);
+    return cb(null,profile)
   }catch(error){
     cb(error, false, error.message)
   }
-  // return cb('test', profile);
 }
 ));
 
@@ -53,6 +59,7 @@ app.get('/auth/facebook',
 app.get('/oauth',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
   function(req, res) {
+    console.log(req.user)
     // Successful authentication, redirect home.
     res.redirect('/');
   });
