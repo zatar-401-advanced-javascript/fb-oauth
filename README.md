@@ -61,7 +61,9 @@ Facebook is one of the most known platforms, you could see it almost on every we
 ### Links and Resources
 * [framework](https://developers.facebook.com/)
 * [docs](https://developers.facebook.com/docs/facebook-login/web/)
-* [examples/tutorials](https://developers.facebook.com/docs/javascript/examples/)
+* [docs passport](http://www.passportjs.org/packages/passport-facebook/)
+* [examples/tutorials](https://www.youtube.com/watch?v=MXle6TrjI64)
+* [examples/tutorials](https://www.youtube.com/watch?v=KlE9RAOl9KA)
 
 ### Code Demos
 * [code repository](https://github.com/zatar-401-advanced-javascript/fb-oauth)
